@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Holiday",
+  title: "Holiday 2 cheris",
   description: "Holiday Next app",
 };
 

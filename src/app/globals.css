@@ -1,11 +1,52 @@
 @import "tailwindcss";
 /* @import "tw-animate-css"; */
+@theme {
+  --breakpoint-mlg: 940px
+}
+
+.ptextc{
+  color: #3fa72a;
+}
+.ptextb{
+  background-color: #3fa72a;
+}
+.wrap{
+  position: relative;
+}
+
+.wrap::before {
+    content: '\25B6';
+    font-family: 'FontAwesome';
+    color: #fff;
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border: 3px solid #fff;
+    border-radius: 73%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .8;
+}
+
+.wrap::after {
+    position: absolute;
+    width: 200%;
+    height: 0%;
+    left: 50%;
+    top: 50%;
+    background-color: rgba(255, 255, 255, .3);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    content: "";
+    z-index: 1;
+}
 
 @custom-variant dark (&:is(.dark *));
 
-body{
-  color: white;
-}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
