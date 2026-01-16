@@ -23,7 +23,8 @@ import Title from "../UiComponents/Title.js";
 import PackageCard from "../UiComponents/PackageCard.js";
 import PackageCard2 from "../UiComponents/PackageCard2.js";
 import Testimonial from "../UiComponents/Testimonial.js";
-import { Footer } from "../navbar/Footer.js";
+import Footer from "../navbar/Footer.js";
+import BottomFooter from "../navbar/BottomFooter.js";
 
 const Homepage = () => {
   const Word = ["Thrills", "Experiences", "Adventures", "Escapes"];
@@ -628,7 +629,7 @@ const Homepage = () => {
               ))}
             </Carousel>
           </div>
-          <div className="flex justify-end ">
+          <div className="flex justify-end  mt-5">
             <button className=" px-4 py-2 ptextb text-white  mr-30 lg:mr-50 rounded-[5px] ">
               View All
             </button>
@@ -636,6 +637,7 @@ const Homepage = () => {
         </div>
       </section>
       <Footer />
+      <BottomFooter/>
     </div>
   );
 };
