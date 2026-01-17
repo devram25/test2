@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../navbar/Navbar.js";
 import { Earth, HandCoins, SearchIcon, Users } from "lucide-react";
 import { WordRotate } from "../ui/word-rotate.js";
@@ -41,6 +41,7 @@ const Testimonial = dynamic(
 import Footer from "../navbar/Footer.js";
 import BottomFooter from "../navbar/BottomFooter.js";
 import dynamic from "next/dynamic.js";
+import { useRouter } from "next/navigation.js";
 
 const Homepage = () => {
   const Word = ["Thrills", "Experiences", "Adventures", "Escapes"];
@@ -432,6 +433,42 @@ const Homepage = () => {
         "I recently planned the Thailand with holidayscherish with a group of friends, and our experience was significantly enhanced by the exceptional services....",
     },
   ];
+  const destinations = [
+  "United Arab Emirates",
+  "Manali",
+  "Mauritius",
+  "Hong Kong",
+  "Thailand",
+  "Maldives",
+  "Azerbaijan",
+  "Singapore",
+  "Malaysia",
+  "Indonesia",
+  "Sri Lanka",
+  "Turkey",
+  "Georgia",
+  "Vietnam",
+  "Japan",
+  "South Korea",
+  "Italy",
+  "France",
+  "Switzerland",
+  "Spain",
+  "Greece",
+];
+
+const [searchDestination, setSearchDestination] = useState("")
+const navigate = useRouter()
+ const HandleSearchDestination =(e)=>{
+   setSearchDestination(e.target.value)
+   const findDest = destinations.filter((item)=> item.toLocaleLowerCase() === searchDestination.toLocaleLowerCase())
+   console.log(searchDestination)
+   console.log(findDest)
+   if(findDest[0]){
+    navigate.push(`/holidays/${findDest[0]}`)
+   }
+ }
+
   return (
     <div className="relative w-full md:w-236 mlg:w-full!">
       <Navbar />
@@ -463,6 +500,8 @@ const Homepage = () => {
           <div className="sm1:mt-6 w-[80%] sm1:w-full max-w-xl">
             <div className="flex items-center gap-2 border-2 border-green-700 bg-white rounded-md px-2 sm1:px-4 py-2 sm1:py-3 text-black">
               <input
+                value={searchDestination}
+                onChange={HandleSearchDestination}
                 className="flex-1 outline-none"
                 type="text"
                 placeholder="Search Destinations, Tours, Activities"
