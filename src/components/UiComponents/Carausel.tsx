@@ -5,12 +5,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MoveLeft, MoveRight } from "lucide-react";
 
+interface CarouselProps {
+  children: React.ReactNode;
+  className?: string;
+  arrow?: boolean;
+}
+
 function Carousel({
   children,
   className = "xsm:mx-10 sm:mx-20",
   arrow = true,
-}) {
-  const sliderRef = useRef(null);
+}: CarouselProps) {
+  const sliderRef = useRef<Slider>(null);
 
   const Next = () => sliderRef.current?.slickNext();
   const Previous = () => sliderRef.current?.slickPrev();

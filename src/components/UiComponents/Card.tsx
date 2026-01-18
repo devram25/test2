@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Card = ({image,name,index}) => {
+const Card = ({image,name,index}:any) => {
   return (
     <div key={index} className=' h-60 xsm:h-88.75 w-45 sm:w-60 overflow-hidden rounded-[15px] relative  hover:shadow-lg cursor-pointer'>
         <img src={image.src || image} className='w-full h-full absolute object-cover hover:scale-105 shadow-lg transform transition-transform duration-500' alt={name} />

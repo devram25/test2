@@ -3,7 +3,7 @@ import Navbar from '../navbar/Navbar'
 import HolidayPackageCard from '../UiComponents/HolidayPackageCard'
 import { RotateCcw } from 'lucide-react'
 
-const Destination = ({ destinationName }) => {
+const Destination = ({ destinationName }:any) => {
     const Nights = [
         "3 Nights",
         "5 Nights",
@@ -27,7 +27,7 @@ const Destination = ({ destinationName }) => {
         "Leisure",
         "Private"
     ]
-    const Departure =[
+    const Departure: any[] = [
 
     ]
     const Destination = [

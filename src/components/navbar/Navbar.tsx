@@ -91,7 +91,7 @@ const Navbar = ({ bgwhite = false }) => {
                         ))}
                     </ul>
                     {/* Mobile Navigation */}
-                    <span onClick={() => setOpen(!open)} className="md:hidden flex bg-[#3fa72a] p-1 rounded-[2px] ">
+                    <span onClick={() => setOpen(!open)} className="md:hidden flex bg-[#3fa72a] p-1 rounded-xs ">
                         <Menu />
                     </span>
                 </div>

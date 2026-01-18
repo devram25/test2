@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Title = ({title}) => {
+const Title = ({title}:any) => {
   return (
    <div className="flex flex-col justify-center items-center my-3 sm1:my-5 mx-4">
           <h1 className=" text-2xl md:text-3xl text-[#3a3a3a] font-bold whitespace-pre-line text-center">{title}</h1>

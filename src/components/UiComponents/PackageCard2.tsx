@@ -2,7 +2,7 @@
 import { MapPin } from "lucide-react"
 import React from "react"
 
-const PackageCard2 = ({ image, title, duration }) => {
+const PackageCard2 = ({ image, title, duration }:any) => {
   return (
     <div className="border border-[#e5e5e5] h-80 sm1:h-103.25 w-55.75 rounded-2xl overflow-hidden flex flex-col bg-white">
       
