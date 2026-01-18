@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 
-const PackageCard = ({image, title, address, price}) => {
+const PackageCard = ({image, title, address, price}:any) => {
     
   return (
     <div className='border border-[#e5e5e5] overflow-hidden h-100 sm1:h-106.25 mb-7.5 w-55.75 sm:w-72.5 rounded-2xl flex flex-col' >
@@ -16,7 +16,7 @@ const PackageCard = ({image, title, address, price}) => {
              <a className='hover:text-[#3fa72a] text-[#3a3a3a] text-[12px] sm:1text-[14px] md:text-[16px]'>Starting from</a>
              <a className='hover:text-[#3fa72a] text-[#3a3a3a] text-[12px] sm:1text-[14px] md:text-[16px]'><span className='font-semibold'>INR </span>{price}</a>
           </div>
-          <button className='px-3 py-1 rounded-[2px]  ptextb text-white w-full cursor-pointer'>View Trip</button>
+          <button className='px-3 py-1 rounded-xs  ptextb text-white w-full cursor-pointer'>View Trip</button>
        </div> 
     </div> 
   )

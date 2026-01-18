@@ -1,18 +1,15 @@
 "use client";
 import React, { useState } from "react";
-import Navbar from "../navbar/Navbar.js";
 import { Earth, HandCoins, SearchIcon, Users } from "lucide-react";
-import { WordRotate } from "../ui/word-rotate.js";
 import RatingMedia from "../assets/rating-media.png";
 const Card = dynamic(
-  () => import("../UiComponents/Card.js"),
+  () => import("../UiComponents/Card"),
   { ssr: false, loading: () => <div className="h-40 bg-gray-200 rounded-xl animate-pulse" /> }
 );
 import Mauritius from "../assets/places/mauritius.jpg";
 import Maldives from "../assets/places/maldives.jpg";
 import Seychelles from "../assets/places/seychelles.jpg";
 import Bali from "../assets/places/bali.jpg";
-import Carousel from "../UiComponents/Carausel.js";
 import Arab from "../assets/destination/arab.jpg";
 import Azerbaijan from "../assets/destination/azerbaijan.jpg";
 import holidays2cherish from "../assets/destination/holidays2cherish.webp";
@@ -22,26 +19,29 @@ import Maldives1 from "../assets/destination/maldives.webp";
 import Mauritius1 from "../assets/destination/mauritius.webp";
 import singapore from "../assets/destination/singapore.webp";
 import thailand from "../assets/destination/thailand.jpg";
-import Title from "../UiComponents/Title.js";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import Navbar from "../navbar/Navbar";
+import { WordRotate } from "../ui/word-rotate";
+import Title from "../UiComponents/Title";
+import Carousel from "../UiComponents/Carausel";
+import Footer from "../navbar/Footer";
+import BottomFooter from "../navbar/BottomFooter";
 const PackageCard = dynamic(
-  () => import("../UiComponents/PackageCard.js"),
+  () => import("../UiComponents/PackageCard"),
   { ssr: false, loading: () => <div className="h-40 bg-gray-200 rounded-xl animate-pulse" /> }
 );
 
 const PackageCard2 = dynamic(
-  () => import("../UiComponents/PackageCard2.js"),
+  () => import("../UiComponents/PackageCard2"),
   { ssr: false, loading: () => <div className="h-40 bg-gray-200 rounded-xl animate-pulse" /> }
 );
 
 const Testimonial = dynamic(
-  () => import("../UiComponents/Testimonial.js"),
+  () => import("../UiComponents/Testimonial"),
   { ssr: false, loading: () => <div className="h-40 bg-gray-200 rounded-xl animate-pulse" /> }
 );
 
-import Footer from "../navbar/Footer.js";
-import BottomFooter from "../navbar/BottomFooter.js";
-import dynamic from "next/dynamic.js";
-import { useRouter } from "next/navigation.js";
 
 const Homepage = () => {
   const Word = ["Thrills", "Experiences", "Adventures", "Escapes"];
@@ -459,7 +459,7 @@ const Homepage = () => {
 
 const [searchDestination, setSearchDestination] = useState("")
 const navigate = useRouter()
- const HandleSearchDestination =(e)=>{
+ const HandleSearchDestination =(e: React.ChangeEvent<HTMLInputElement>)=>{
    setSearchDestination(e.target.value)
    const findDest = destinations.filter((item)=> item.toLocaleLowerCase() === searchDestination.toLocaleLowerCase())
    console.log(searchDestination)
@@ -519,7 +519,7 @@ const navigate = useRouter()
               {item.icon ? (
                 <span>{item.icon}</span>
               ) : (
-                <img src={item.image.src} alt="rating image" />
+                <img src={typeof item.image === "string" ? item.image : item.image.src} alt="rating image" />
               )}
               <p className="flex flex-col ">
                 <span className="text-[12px] font-semibold">{item.first}</span>
@@ -559,7 +559,7 @@ const navigate = useRouter()
       <section className="flex flex-col w-full overflow-hidden mb-20">
         <Title title="Celebrity Travel Dairies" />
         <div>
-          <Carousel slides={5}>
+          <Carousel>
             {CelebrityDiary.map((item, index) => (
               <div key={index} style={{ width: 200 }} className="h-90">
                 <a
@@ -639,7 +639,7 @@ const navigate = useRouter()
       {/* Custommized package */}
       <section>
         <Title title={`European Delight : Group &\nCustomized packages`} />
-        <Carousel slides={4}>
+        <Carousel >
           {PackageData.map((pack, index) => (
             <PackageCard
               image={pack.image}
@@ -694,7 +694,7 @@ const navigate = useRouter()
             Let customer's review do the talking!
           </h1>
           <div className="mt-5">
-            <Carousel slides={3} arrow={true}>
+            <Carousel  arrow={true}>
               {Testimonials.map((item, index) => (
                 <div className="pt-4 relative" >
                   <Testimonial
